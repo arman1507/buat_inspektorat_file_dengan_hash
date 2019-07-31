@@ -43,7 +43,7 @@ class Mahasiswa extends Controller
        $ext = $data->file->getClientOriginalName();
        $data->file->move('uploads/file',$ext);
        $data->file = $ext;
-       $data->md5 = md5($data->file);
+       $data->md5 = md5_file('uploads/file/'.$ext);
        $data->save();
        return redirect()->route('mahasiswa.index')->with('alert-success','Berhasil Menambahkan Data');
 

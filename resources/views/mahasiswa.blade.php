@@ -25,10 +25,11 @@
                 @php $no = 1; @endphp
                 @foreach($data as $datas)
                     <tr>
+                    
                         <td>{{ $no++ }}</td>
                         <td>{{ $datas->nama }}</td>
                         <td>{{ $datas->alamat }}</td>
-                        @if(md5($datas->file) == $datas->md5)
+                        @if(md5_file('uploads/file/'.$datas->file) == $datas->md5)
                         <td><a href="{{ url('uploads/file/'.$datas->file) }}" > {{$datas->file}}</a></td>
                         @else
                         {<td>data sudah diganti</td>}
